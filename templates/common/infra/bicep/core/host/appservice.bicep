@@ -92,6 +92,7 @@ module configAppSettings 'appservice-appsettings.bicep' = {
       {
         SCM_DO_BUILD_DURING_DEPLOYMENT: string(scmDoBuildDuringDeployment)
         ENABLE_ORYX_BUILD: string(enableOryxBuild)
+        ApplicationInsightsAgent_EXTENSION_VERSION: '~2'
       },
       runtimeName == 'python' && appCommandLine == '' ? { PYTHON_ENABLE_GUNICORN_MULTIWORKERS: 'true'} : {},
       !empty(applicationInsightsName) ? { APPLICATIONINSIGHTS_CONNECTION_STRING: applicationInsights.properties.ConnectionString } : {},
